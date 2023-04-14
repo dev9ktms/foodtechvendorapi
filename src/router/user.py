@@ -221,13 +221,13 @@ def dissaprove_user(email_id,db: Session=Depends(get_db)):
 
     return "user dissaproved successfully"
 
-@router.post("/calorietracker")
-async def create_calorie_info(data : list [CalorieInfoInput], db: Session = Depends(get_db)):
-    for item in data:
-        items = item.items
-        calories = item.calories
-        db_record = CalorieTracker(items=items, calories=calories)
-        db.add(db_record)
-    db.commit()
-    return {"item": items, "calorie": calories}
+# @router.post("/calorietracker")
+# async def create_calorie_info(data : list [CalorieInfoInput], db: Session = Depends(get_db)):
+#     for item in data:
+#         items = item.items
+#         calories = item.calories
+#         db_record = CalorieTracker(items=items, calories=calories)
+#         db.add(db_record)
+#     db.commit()
+#     return {"item": items, "calorie": calories}
 
